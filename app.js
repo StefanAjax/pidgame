@@ -23,8 +23,8 @@ rocket.scale.x = 0.2
 rocket.scale.y = 0.2
 
 rocket.vy = 1
-rocket.mass = 10
-gravity = 9.81
+rocket.mass = 100   // kg
+gravity = 9.81      // N/kg ??
 fps = 60
 pixels_per_meter = 5
 seconds_per_frame = 1/fps
@@ -48,9 +48,9 @@ app.ticker.add(function(delta) {
     rocket.gforce_y = rocket.mass * gravity
 
     // Regulering
-    rocket.p_coeff = 2
+    rocket.p_coeff = 4
     rocket.i_coeff = 0
-    rocket.d_coeff = 0.05
+    rocket.d_coeff = 1
     
     rocket.target_y = 500
     
@@ -61,7 +61,6 @@ app.ticker.add(function(delta) {
     rocket.error_int_y = 0
 
     rocket.thrust = rocket.error_y * rocket.p_coeff + rocket.error_deriv_y * rocket.d_coeff + rocket.error_int_y * rocket.i_coeff;
-
 
     // Rörelse
     rocket.ay = (rocket.gforce_y + rocket.thrust) / rocket.mass
@@ -89,9 +88,3 @@ app.ticker.add(function(delta) {
     // Housekeeping
     rocket.previous_error_y = rocket.error_y
 });
-
-
-// F = m*a
-// a = F/m
-// vy = vy + ay
-

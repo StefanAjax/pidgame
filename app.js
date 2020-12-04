@@ -178,15 +178,15 @@ app.ticker.add(function(delta) {
 
     
     // Styrvariabler
-    rocket.p_coeff = 70
-    rocket.i_coeff = 1
-    rocket.d_coeff = 100
+    rocket.p_coeff = 2
+    rocket.i_coeff = 0
+    rocket.d_coeff = 0
     
 
     //Miljövariabler
-    rocket.dnoise_strenth = 10000
+    rocket.dnoise_strenth = 0
     rocket.mass = 5000
-    gravity = 3
+    gravity = 0
     rocket.mass = 1000   // kg
     // Störningar
     rocket.dnoise = Math.random() * rocket.dnoise_strenth
@@ -201,7 +201,7 @@ app.ticker.add(function(delta) {
     rocket.int_array.push(rocket.error_y);
     rocket.int_array.shift()
     rocket.int_array_windowed = []
-    for(var i = 0; i < rocket.int_array_len; i++) {
+    for (let i = 0; i < rocket.int_array_len; i++) {
         rocket.int_array_windowed.push(rocket.int_array[i]*rocket.int_window_array[i])}
     rocket.error_int_y = rocket.int_array_windowed.reduce((a, b) => a + b, 0)  // / rocket.int_array_len
 

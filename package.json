@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "pixi-particles": "^4.3.0",
     "pixi.js": "^5.3.3"
   }
 }
